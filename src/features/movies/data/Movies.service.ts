@@ -1,19 +1,12 @@
-import localAxios from '../../../common/utils/localAxios';
-import {
-	MoviesCreateModel,
-	MoviesUpdateModel,
-	MovieModel,
-} from './Movies.model';
+import { MovieResponseModel } from './Movies.model';
+import { localFetch } from '../../../common/utils/fetch';
 
-const apikey = 'f62c421f';
-localStorage.setItem('apiKey', apikey);
-export const getAllMovies = (search: string): Promise<any> =>
-	localAxios.get(`&s=${search}`);
+export const getAllMovies = (search: string, page: number) =>
+	localFetch<MovieResponseModel>(`/?page=${page}&s=${search}`, {
+		method: 'GET',
+	});
 
-// export const postNewDevice = (payload: MoviesCreateModel): Promise<void> =>
-// 	localAxios.post(`/device`, payload);
-
-// export const putUpdateDevice = (
-// 	macAddress: string,
-// 	payload: MoviesUpdateModel
-// ) => localAxios.put(`/device/${macAddress}`, payload);
+export const getmoviedetails = (id: string) =>
+	localFetch<any>(`/?i=${id}`, {
+		method: 'GET',
+	});

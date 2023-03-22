@@ -1,14 +1,26 @@
-export interface MoviesCreateModel {
-	name: string;
-	macAddress: string;
-	description: string;
-}
-
-export interface MoviesUpdateModel
-	extends Omit<MoviesCreateModel, 'macAddress'> {
-	// status: boolean
-}
-
 export interface MovieModel {
-	status: boolean;
+	Title: string;
+	Year: string;
+	imdbID: string;
+	Type: 'movie' | 'series';
+	Poster: string;
+}
+export interface movies {
+	Response: 'True' | 'False';
+	Search: MovieModel[];
+	totalResults: string;
+	error: any;
+	status: string;
+}
+
+export interface MovieResponseModel {
+	Response: 'True' | 'False';
+	Search: MovieModel[];
+	totalResults: string;
+}
+
+export interface AllMovie {
+	movies: MovieResponseModel;
+	onPageChange: (page: number) => void;
+	page: number;
 }

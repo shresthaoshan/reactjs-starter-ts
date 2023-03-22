@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Button, Card, Image, List, Pagination, Space } from 'antd';
+import { Button, Card, Image, Pagination, Space } from 'antd';
 
 export const DeviceViewWrapper = styled(Space)`
 	display: flex;
