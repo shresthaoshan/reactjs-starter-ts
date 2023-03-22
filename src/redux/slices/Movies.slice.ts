@@ -1,11 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 import type { CaseReducer, PayloadAction } from '@reduxjs/toolkit';
-// import { any } from '../../features/movies/data/Movies.model';
+import { MovieModel } from '../../features/movie/data/movie.model';
 
 export interface MovieState {
 	status: 'idle' | 'loading' | 'success' | 'error';
-	data: any;
+	data: MovieModel[];
 	error: any;
 }
 
@@ -39,8 +39,8 @@ const setError: CaseReducer<MovieState, PayloadAction<any>> = (
 	error: action.payload,
 });
 
-const deviceSlice = createSlice({
-	name: 'movies',
+const movieSlice = createSlice({
+	name: 'movie',
 	initialState: initState,
 	reducers: {
 		setData,
@@ -49,4 +49,4 @@ const deviceSlice = createSlice({
 	},
 });
 
-export default deviceSlice;
+export default movieSlice;
