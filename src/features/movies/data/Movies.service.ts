@@ -1,4 +1,4 @@
-import { MovieResponseModel } from './Movies.model';
+import { MovieResponseModel, movie } from './Movies.model';
 import { localFetch } from '../../../common/utils/fetch';
 
 export const getAllMovies = (search: string, page: number) =>
@@ -7,6 +7,6 @@ export const getAllMovies = (search: string, page: number) =>
 	});
 
 export const getmoviedetails = (id: string) =>
-	localFetch<any>(`/?i=${id}`, {
+	localFetch<movie>(`/?i=${id}`, {
 		method: 'GET',
 	});

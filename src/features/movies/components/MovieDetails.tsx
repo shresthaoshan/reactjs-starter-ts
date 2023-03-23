@@ -5,6 +5,7 @@ import Meta from 'antd/es/card/Meta';
 import { Descriptions, List, Space } from 'antd';
 import { useAppSelector } from '../../../redux/store';
 import { useMovies } from '../hooks/useMovies';
+import { MovieDetailsProps, Rating } from '../data/Movies.model';
 
 const MovieDetails = () => {
 	const { GetMovieDetails } = useMovies();
@@ -16,8 +17,11 @@ const MovieDetails = () => {
 	}, []);
 
 	const movies = useAppSelector((state) => state.movies);
+	console.log(movies);
 
-	const data: any = movies?.data;
+	const data: MovieDetailsProps = movies?.data;
+
+	console.log(data);
 
 	const details = (
 		<Descriptions
@@ -42,7 +46,7 @@ const MovieDetails = () => {
 		<List
 			dataSource={data?.Ratings}
 			grid={{ column: 3 }}
-			renderItem={(item: any) => (
+			renderItem={(item: Rating) => (
 				<Descriptions
 					labelStyle={{ color: '#6c757d', fontSize: 15, fontWeight: 'bold' }}
 					contentStyle={{ color: '#6c757d' }}

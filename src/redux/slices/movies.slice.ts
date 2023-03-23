@@ -2,15 +2,16 @@ import { createSlice } from '@reduxjs/toolkit';
 
 import type { CaseReducer, PayloadAction } from '@reduxjs/toolkit';
 import { MovieModel } from '../../features/movie/data/movie.model';
+import { MovieResponseModel } from '../../features/movies/data/Movies.model';
 
 export interface MovieState {
 	status: 'idle' | 'loading' | 'success' | 'error';
-	data: MovieModel[];
+	data: MovieResponseModel;
 	error: any;
 }
 
 const initState: MovieState = {
-	data: [],
+	data: {} as MovieResponseModel,
 	status: 'idle',
 	error: '',
 };
