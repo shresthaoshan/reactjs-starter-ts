@@ -1,7 +1,7 @@
-import React from "react";
-import { useAppSelector } from "../../redux/store";
-import { useMovie } from "./hooks/useMovie";
-import { MovieViewWrapper } from "./styles";
+import React from 'react';
+import { useAppSelector } from '../../redux/store';
+import { useMovie } from './hooks/useMovie';
+import { MovieViewWrapper } from './styles';
 
 const MovieView = () => {
 	const movies = useAppSelector((state) => state.movies);
